@@ -1,0 +1,9 @@
+h1 タスク一覧
+div
+  = link_to "新規登録", new_task_path
+
+- @tasks.each do |task|
+  .div
+    = link_to task.name, task
+    = task.created_at
+    = link_to "編集", edit_task_path(task)

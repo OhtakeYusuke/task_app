@@ -1,0 +1,12 @@
+h1 投稿詳細
+.nav
+  = link_to "一覧", tasks_path
+
+.div
+  = @task.id
+.div
+  = @task.description
+.div
+  = @task.created_at
+.div
+  = link_to "編集", edit_task_path
