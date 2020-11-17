@@ -1,9 +1,15 @@
+- if task.errors.present?
+  .div
+    -task.errors.full_messages.each do |message|
+      = message
 
 = form_with model: task, local: true do |f|
   .form-group
     = f.label :name
-    = f.text_field :name, id: "task_name"
+    .div
+      = f.text_field :name, id: "task_name"
   .form-group
     = f.label :description
-    = f.text_area :description, id: "task_description"
-  =f.submit nil
+    .div
+      = f.text_area :description, id: "task_description"
+  = f.submit nil

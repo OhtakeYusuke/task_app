@@ -9,4 +9,8 @@ h1 投稿詳細
 .div
   = @task.created_at
 .div
+  / 下記の edit_task_path はURLヘルパーメソッド
   = link_to "編集", edit_task_path
+.div
+  / 下記の @task はモデル
+  = link_to "削除", @task, method: :delete, data: {confirm: "タスク #{@task.name} 削除しますか？"}
