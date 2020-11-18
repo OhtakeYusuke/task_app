@@ -1,2 +1,19 @@
-h1 Admin::Users#show
-p Find me in app/views/admin/users/show.html.slim
+h1 詳細画面
+
+= link_to "一覧", admin_users_path
+
+.index
+  = @user.id
+.index
+  = @user.name
+.index
+  = @user.email
+.index
+  = @user.admin? ? "あり" : "なし"
+.index
+  = @user.created_at
+.index
+  = @user.updated_at
+.index
+  = link_to "編集", edit_admin_user_path
+  = link_to "削除", admin_user_path, method: :delete, data: {confirm: "削除しても良いですか？"}

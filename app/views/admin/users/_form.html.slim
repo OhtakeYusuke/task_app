@@ -1,0 +1,24 @@
+- if user.errors.present?
+  -user.errors.full_masseges.each do |massege|
+    = massege
+
+= link_to "一覧", admin_users_path
+
+= form_with model: [:admin, @user], local: true do |f|
+  div
+    = f.label :name, "名前"
+    = f.text_field :name
+  div
+    = f.label :email, "メールアドレス"
+    = f.text_field :email
+  div
+    = f.label :admin
+    = f.check_box :admin
+    | 管理者権限
+  div
+    = f.label :password, "パスワード"
+    = f.password_field :password
+  div
+    = f.label :password_confirmation, "パスワード再確認"
+    = f.password_field :password_confirmation
+  = f.submit "登録"
