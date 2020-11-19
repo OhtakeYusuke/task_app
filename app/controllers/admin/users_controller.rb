@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :required_admin
+
   
   def index
     @users = User.all
@@ -40,10 +42,12 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_url, notice: "#{@user.name} を削除しました"
   end
 
-end
-
-
-private
-def user_params
-  params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+  end
+  
+  def required_admin
+    redirect_to root_path unless current_user.admin?
+  end
 end

@@ -8,6 +8,15 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    - if flash.notice.present?
-      .alert.alert-success = flash.notice
+    
+    - if current_user
+      = link_to "タスク", tasks_path
+      - if current_user.admin?
+        = link_to "ユーザー一覧", admin_users_path
+        = link_to "ログアウト", logout_path, method: :delete
+    - else
+      = link_to "ログイン", login_path
+    div
+      - if flash.notice.present?
+        .alert.alert-success = flash.notice
     = yield

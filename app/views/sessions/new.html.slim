@@ -1,0 +1,11 @@
+h1 ログイン
+
+= form_with scope: :session, url: login_path, local: true do |f|
+  .index
+    = f.label :email, "メールアドレス"
+    = f.text_field :email, id: "session_email"
+  .index
+    = f.label :password, "パスワード"
+    = f.password_field :password, id: "session_password"
+  .index
+    = f.submit "ログインする"
