@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   # 独自バリデーション
   validate :validate_name_not_including_comma
   # モデルの関連づけ
-  belong_to :user
+  belongs_to :user
 
   private
   def validate_name_not_including_comma
