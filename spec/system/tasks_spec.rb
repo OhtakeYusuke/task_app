@@ -3,14 +3,12 @@ require "rails_helper"
 describe "タスク管理機能", type: :system do
     
   describe "一覧表示機能" do
-    before do
+    context "ユーザAがログインしている場合" do
+      # before内で書いた変数は当然ローカル変数。
       # ユーザA作成
-      user_a = FactoryBot.create(:user)
-      # タスク作成(再利用することがないため変数に格納していない)
-      task_a = FactoryBot.create(:task)
-    end
-
-    context "ユーザAがログインしている" do
+      let(:user_a) {FactoryBot.create(:user)}
+      # タスク作成
+      let(:task_a) {FactoryBot.create(:task, user: user_a)}
       before do
         # ユーザAでログインする
         visit login_path
