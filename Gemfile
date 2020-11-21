@@ -36,6 +36,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # FactoryBot（テストデータ作成支援ツール）（test直下）
   gem 'factory_bot_rails'
+
+  # ダミーデータの生成
+  gem 'faker'
 end
 
 group :development do

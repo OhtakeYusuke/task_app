@@ -1,6 +1,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "capybara/rspec"
 RSpec.configure do |config|
+  # ドライブに対してHeadlessChromeの設定
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
